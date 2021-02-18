@@ -77,23 +77,24 @@
                 <div class="liste_tableau">
                     <table width=100%>
                         <tr>
-                            <th>Identifiant</th>
-                            <th>NOM</th>
-                            <th>PRENOM</th>
-                            <th>EMAIL</th>
-                            <th>ACTION 1</th>
-                            <th>ACTION 2</th>
+                                    <th>ID</th>
+                                    <th>EMAIL</th>
+                                    <th>NOM</th>
+                                    <th>PRENOM</th>
+                                    <th>DATE</th>
+                                    <th>FORMATION</th>
                         </tr>
                         <tr>
                             <?php
-                                while($ligne = $result->fetch()){
+                                sql 
                                     echo "<tr>
                                             <td>$ligne[0]</td>
                                             <td>$ligne[1]</td>
                                             <td>$ligne[2]</td>
                                             <td>$ligne[3]</td>
-                                            <td><a class='btn btn-success' href='details.php'>Détails</a></td>
-                                            <td><a class='btn btn-danger' onclick='return confirm(\"Voulez-vous vraiment supprimer cet apprenant?\")'; href='supprimer.php?id=$ligne[0]'>Supprimer</a></td>
+                                            
+                                  <td><a class='btn btn-succes' onclick='return confirm(\"Voulez-vous vraiment supprimer cet apprenant?\")';
+                                    href='supprimer.php?id=$ligne[0]'>Supprimer</a></td>
                                         </tr>";
                                 }
                             ?>

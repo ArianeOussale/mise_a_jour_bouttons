@@ -1,3 +1,14 @@
+
+<?php
+
+require_once 'connexion.php';
+$id= $_GET ['ID'];
+$recupere = $db->prepare('SELECT*FROM  monprojet WHERE ID=? ');
+$recupere->execute(array($id));
+$data = $recupere->fetch();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,37 +70,38 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 col-xd-12">
-          <h3 class="text-center">S'enregistrer</h3>
-          <form class="col-lg-12 col-md-12 col-sm-12 col-xd-12  mb-5 pt-3" action="traitement.php" method="post">
+          <h3 class="text-center">MODIFIER</h3>
+          <form class="col-lg-12 col-md-12 col-sm-12 col-xd-12  mb-5 pt-3" action="update.php" method="POST">
             <div class="form-group row pl-2">
               <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg bg-white">Email:</label>
               <div class="col-sm-8">
-                <input type="email" name="EMAIL" class="form-control form-control-lg" id="colFormLabelLg" required>
+                <input type="email" name="EMAIL" class="form-control form-control-lg" id="colFormLabelLg" value="<?=$data['EMAIL']; ?>" required>
               </div>
             </div>
             <div class="form-group row pl-2">
               <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg  bg-white b">Nom:</label>
               <div class="col-sm-8">
-                <input type="text" name="NOM" class="form-control form-control-lg" id="colFormLabelLg" required>
+                <input type="text" name="NOM" class="form-control form-control-lg" id="colFormLabelLg" value="<?=$data['NOM']; ?>" required>
               </div>
             </div>
             <div class="form-group row pl-2">
               <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg bg-white ">Prenom(s):</label>
               <div class="col-sm-8">
-                <input type="text" name="PRENOM" class="form-control form-control-lg border" id="colFormLabelLg"
+                
+                <input type="text" name="PRENOM" class="form-control form-control-lg border" id="colFormLabelLg"  value="<?=$data['PRENOM']; ?>"
                   required>
               </div>
             </div>
           <div class="form-group row pl-2">
             <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg bg-white ">Date de naissance</label>
             <div class="col-sm-8">
-              <input type="date" name="DATE" class="form-control form-control-lg border" id="colFormLabelLg" required>
+              <input type="date" name="DATE" class="form-control form-control-lg border" id="colFormLabelLg" value="<?=$data['DATE']; ?>" required>
             </div>
           </div>
             <div class="form-group row pl-2">
               <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg bg-white ">Formation:</label>
               <div class="col-sm-8">
-                <input list="Formations" name="FORMATION" class="form-control form-control-lg" id="colFormLabelLg"
+                <input list="Formations" name="FORMATION" class="form-control form-control-lg" id="colFormLabelLg" value="<?=$data['FORMATION']; ?>"
                   required>
                 <datalist id="Formations">
                   <option value="Droit">
@@ -105,7 +117,7 @@
               </div>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary mt-2 mb-3">S'enregistrer</button>
+              <button type="submit" class="btn btn-primary mt-2 mb-3">UPDATE</button>
               <div class="container-fluid">
                
               </div>
@@ -128,3 +140,70 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
